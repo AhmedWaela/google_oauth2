@@ -1,11 +1,11 @@
 import 'dart:html' as html;
 import 'package:flutter/material.dart';
-import 'package:google_oauth2/models/google_auth_callback.dart';
-import 'package:google_oauth2/models/google_auth_setup.dart';
-import 'package:google_oauth2/models/google_auth_url_paarmeters.dart';
-import 'package:google_oauth2/utils/auth_req_sec_params_generator.dart';
-import 'package:google_oauth2/utils/google_auth_listener.dart';
-import 'package:google_oauth2/utils/google_auth_url.dart';
+import 'package:google_oauth2_flutter/models/google_auth_callback.dart';
+import 'package:google_oauth2_flutter/models/google_auth_setup.dart';
+import 'package:google_oauth2_flutter/models/google_auth_url_paarmeters.dart';
+import 'package:google_oauth2_flutter/utils/auth_req_sec_params_generator.dart';
+import 'package:google_oauth2_flutter/utils/google_auth_listener.dart';
+import 'package:google_oauth2_flutter/utils/google_auth_url.dart';
 
 class WebGoogleAuth {
   static Future<void> startSignin({required GoogleAuthSetup setup}) async {

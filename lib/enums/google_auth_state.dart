@@ -1,1 +1,1 @@
-enum AuthState { loading, success, failure, initalized }
+enum GoogleAuthState { loading, success, failure, initalized }

@@ -1,5 +1,6 @@
 
-import 'package:google_oauth2/errors/google_auth_failure.dart';
+import 'package:google_oauth2_flutter/errors/google_auth_failure.dart';
+
 import '../../models/google_tokens.dart';
 
 class GoogleAuthCallback {

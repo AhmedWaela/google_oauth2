@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:google_oauth2/enums/google_auth_state.dart';
-import 'package:google_oauth2/models/google_oauth_model.dart';
-import 'package:google_oauth2/repo/google_oauth_repo.dart';
+import 'package:google_oauth2_flutter/enums/google_auth_state.dart';
+import 'package:google_oauth2_flutter/models/google_oauth_model.dart';
+import 'package:google_oauth2_flutter/repo/google_oauth_repo.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_windows/webview_windows.dart';
 import '../../models/google_auth_setup.dart';
@@ -48,15 +48,19 @@ class _GoogleOAuthViewState extends State<GoogleOAuthView> {
     await googleAuthRepo.authWithGoogle(
       model: GoogleOauthModel(
         onInitalized: () {
-          setState(() {});
+          setState(() {
+            authState = GoogleAuthState.initalized;
+          });
         },
         onLoading: () {
-          setState(() {});
+          setState(() {
+            authState = GoogleAuthState.loading;
+          });
         },
         setup: GoogleAuthSetup(
           clientId: widget.setup.clientId,
           clientSecret: widget.setup.clientSecret,
-          redirectUri: widget.setup.clientSecret,
+          redirectUri: widget.setup.redirectUri,
           appBarTitle: widget.setup.appBarTitle,
           centerTitle: widget.setup.centerTitle,
           loginHint: widget.setup.loginHint,

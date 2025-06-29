@@ -1,39 +1,121 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+# google_oauth2_flutter
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+A Flutter package that enables OAuth 2.0 authorization with Google to obtain access tokens and interact with Google APIs on behalf of the user.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+✅ Supports:
+- **Android**
+- **Web**
+- **Windows**
 
-## Features
+> 🔒 This package simplifies the Google OAuth 2.0 flow across platforms.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+---
 
-## Getting started
+## 🛠 Features
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- Easy Google Sign-In with OAuth 2.0
+- Custom success, failure, and loading UI support
+- Built-in handling of `access_token`, `id_token`, and authorization code
+- Works on both mobile (Android) and desktop (Windows), as well as the web
 
-## Usage
+---
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+## 🚀 Usage
+
+### 1. Sign in with Google (Android & Windows)
 
 ```dart
-const like = 'sample';
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) {
+      return GoogleOAuthView(
+        setup: GoogleAuthSetup(
+          clientId: clientId,
+          clientSecret: clientSecret,
+          redirectUri: redirectUri,
+          scopes: scopes,
+          loginHint: loginHint,
+          onSuccess: (tokens) {
+            // Handle tokens here
+          },
+          onError: (error) {
+            // Handle error here
+          },
+          appBarTitle: 'Sign in with Google',
+          centerTitle: true,
+          loadingWidget: CircularProgressIndicator(),
+          failureWidget: Text('Login failed'),
+          successWidget: Text('Login successful'),
+        ),
+      );
+    },
+  ),
+);
+````
+
+---
+
+### 2. Google Sign-In Flow (Web Only)
+
+```dart
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+
+    WebGoogleAuth.listenToRequestUrl(
+      setup: GoogleAuthSetup(
+        clientId: dotenv.env["GoogleClientId"]!,
+        clientSecret: dotenv.env["GoogleClientSecret"]!,
+        redirectUri: redirectUri,
+        onSuccess: (tokens) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              content: Text(tokens.accessToken),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: IconButton(
+          onPressed: () {
+            WebGoogleAuth.startSignin(
+              setup: GoogleAuthSetup(
+                clientId: dotenv.env["GoogleClientId"]!,
+                clientSecret: dotenv.env["GoogleClientSecret"]!,
+                redirectUri: redirectUri,
+              ),
+            );
+          },
+          icon: Icon(Icons.login),
+        ),
+      ),
+    );
+  }
+}
 ```
 
-## Additional information
+---
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## 📚 Learn More
+
+Read this article to understand the Google OAuth 2.0 flow in detail:
+👉 [How to Access Google APIs via OAuth 2.0](https://medium.com/@ahmedwael99104/how-to-access-google-apis-via-oauth-2-0-23028813c40f)
+
+---

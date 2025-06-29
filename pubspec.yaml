@@ -1,5 +1,5 @@
-name: google_oauth2
-description: "A new Flutter package project."
+name: google_oauth2_flutter
+description: "A Flutter package that enables OAuth 2.0 authorization with Google to obtain access tokens and interact with Google APIs on behalf of the user."
 version: 0.0.1
 homepage: null
 

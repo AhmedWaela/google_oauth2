@@ -1,4 +1,5 @@
-import 'package:google_oauth2/models/google_auth_setup.dart';
+import 'package:google_oauth2_flutter/models/google_auth_setup.dart'
+    show GoogleAuthSetup;
 
 class GoogleOauthModel {
   final GoogleAuthSetup setup;

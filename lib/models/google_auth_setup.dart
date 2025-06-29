@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_oauth2/errors/google_auth_failure.dart';
+import '../errors/google_auth_failure.dart';
 import 'google_tokens.dart';
 
 class GoogleAuthSetup {

@@ -1,4 +1,6 @@
-import 'package:google_oauth2/models/google_auth_setup.dart';
+
+
+import 'package:google_oauth2_flutter/models/google_auth_setup.dart';
 
 class WebGoogleAuth {
   static Future<void> startSignin({required GoogleAuthSetup setup}) async {}

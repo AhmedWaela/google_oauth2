@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
-import 'package:google_oauth2/errors/google_auth_failure.dart';
-import 'package:google_oauth2/models/google_token_exchanger_input_model.dart';
+import 'package:google_oauth2_flutter/errors/google_auth_failure.dart';
+import 'package:google_oauth2_flutter/models/google_token_exchanger_input_model.dart';
 import '../../models/google_tokens.dart';
 import "package:http/http.dart";
 

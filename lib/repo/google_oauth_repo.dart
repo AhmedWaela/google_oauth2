@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:google_oauth2/models/google_auth_callback.dart';
-import 'package:google_oauth2/models/google_oauth_model.dart';
-import 'package:google_oauth2/utils/auth_req_sec_params_generator.dart';
-import 'package:google_oauth2/utils/google_auth_listener.dart';
-import 'package:google_oauth2/utils/google_auth_url.dart';
+import 'package:google_oauth2_flutter/models/google_auth_callback.dart';
+import 'package:google_oauth2_flutter/models/google_oauth_model.dart';
+import 'package:google_oauth2_flutter/utils/auth_req_sec_params_generator.dart';
+import 'package:google_oauth2_flutter/utils/google_auth_listener.dart';
+import 'package:google_oauth2_flutter/utils/google_auth_url.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_windows/webview_windows.dart';
 
@@ -42,7 +42,7 @@ class GoogleOAuthRrepoImpl implements GoogleOAuthRepo {
       await controller?.initialize();
       await controller?.setBackgroundColor(Colors.transparent);
       controller?.url.listen((url) async {
-         await GoogleAuthCallbackHandler.listenForAuthCallback(
+        await GoogleAuthCallbackHandler.listenForAuthCallback(
           googleAuthCallback: GoogleAuthCallback(
             url: url,
             clientId: model.setup.clientId,
