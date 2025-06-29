@@ -16,3 +16,5 @@ export 'package:google_oauth2/utils/google_auth_listener.dart';
 export 'package:google_oauth2/utils/google_auth_url.dart';
 export 'package:google_oauth2/utils/google_token_exchanger.dart';
 export 'package:google_oauth2/views/google_oauth_view.dart';
+import 'package:google_oauth2/web_service/web_google_auth_stub.dart'
+    if (dart.library.html) "package:google_oauth2/web_service/web_google_auth_real.dart";
