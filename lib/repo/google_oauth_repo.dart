@@ -57,7 +57,7 @@ class GoogleOAuthRrepoImpl implements GoogleOAuthRepo {
       });
       await controller?.loadUrl(authorizationRequestUri);
     }
-    if (Platform.isAndroid) {
+    if (Platform.isAndroid || Platform.isIOS) {
       await mobileController?.setJavaScriptMode(JavaScriptMode.unrestricted);
       await mobileController?.setUserAgent(
         "Mozilla/5.0(Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML , like Gecko) Chrome/86.0.4240.198 Mobile Safari/537.36",

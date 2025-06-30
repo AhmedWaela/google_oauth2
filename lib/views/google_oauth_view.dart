@@ -34,7 +34,7 @@ class _GoogleOAuthViewState extends State<GoogleOAuthView> {
     if (Platform.isWindows) {
       windowsController = WebviewController();
     }
-    if (Platform.isAndroid) {
+    if (Platform.isAndroid || Platform.isIOS) {
       mobileController = WebViewController();
     }
     await initalizeGoogleWebView();
